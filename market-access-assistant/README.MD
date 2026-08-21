@@ -8,8 +8,7 @@ source snippets and a confidence level shown alongside it. Answers are explicitl
 medical, legal, or regulatory advice.
 
 See [ARCHITECTURE.md](ARCHITECTURE.md) for system design, trade-offs, and what would
-change for production, and [AI_USAGE.md](AI_USAGE.md) for how AI tools were used to
-build this.
+change for production.
 
 ## Stack, and why it differs from the "recommended" one
 
@@ -159,5 +158,5 @@ data/                 4 synthetic sample documents
 tests/                 35 unit + API tests (unittest, pytest-compatible)
 .github/workflows/ci.yml   Runs the test suite on push/PR
 Dockerfile, docker-compose.yml
-ARCHITECTURE.md, AI_USAGE.md
+ARCHITECTURE.md
 ```
