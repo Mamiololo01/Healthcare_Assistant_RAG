@@ -157,7 +157,6 @@ frontend/
   index.html         Single-page vanilla HTML/CSS/JS UI, no build step
 data/                 4 synthetic sample documents
 tests/                 35 unit + API tests (unittest, pytest-compatible)
-scripts/               One-off sample-PDF generation (not part of the running app)
 .github/workflows/ci.yml   Runs the test suite on push/PR
 Dockerfile, docker-compose.yml
 ARCHITECTURE.md, AI_USAGE.md
