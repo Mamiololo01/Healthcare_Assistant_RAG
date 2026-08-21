@@ -1,0 +1,47 @@
+UK NICE Technology Appraisal Summary (Synthetic Example)
+Product: Oncozalimab (fictional monoclonal antibody)
+Indication: Second-line treatment of advanced non-small cell lung cancer (NSCLC) in adults whose
+disease has progressed after platinum-based chemotherapy.
+Appraisal type: Single Technology Appraisal (STA)
+Committee: NICE Technology Appraisal Committee
+
+1. Background
+Oncozalimab is a monoclonal antibody targeting PD-L1, administered by intravenous infusion every
+three weeks. The company submitted clinical evidence from a single open-label, randomised phase III
+trial (ONCZ-301) comparing oncozalimab against docetaxel in 412 patients with advanced NSCLC.
+
+2. Clinical Evidence Summary
+The trial met its primary endpoint of progression-free survival (PFS), with a median PFS of 5.8 months
+for oncozalimab versus 3.9 months for docetaxel (hazard ratio 0.71, 95% CI 0.58-0.87). However, at
+the time of the submission, overall survival (OS) data were immature, with only 38% of the required
+death events observed. The committee noted that the immature overall survival data made it difficult
+to assess the true long-term survival benefit, and that the OS curves had not yet separated with
+confidence.
+
+3. Evidence Gaps Identified by the Committee
+- Immature overall survival data at the time of submission, driven by a low number of observed
+  death events relative to the planned analysis.
+- Uncertainty around the durability of treatment benefit beyond the 12-month follow-up window
+  reported in the trial, since long-term data on response duration were not yet available.
+- Limited real-world evidence in NHS clinical practice, as the pivotal trial population was drawn
+  from a multinational trial that under-represented UK patients and NHS treatment pathways.
+- The comparator arm used standard-dose docetaxel, but the committee noted that some UK clinicians
+  now use alternative second-line regimens, raising questions about the generalisability of the
+  comparison.
+- Health-related quality-of-life data were collected but had a high rate of missingness at later
+  time points, limiting confidence in the quality-adjusted life year (QALY) estimates.
+
+4. Committee Conclusions
+The committee considered that oncozalimab demonstrated a clinically meaningful improvement in
+progression-free survival, but concluded that the overall survival benefit could not yet be
+confirmed with confidence due to data immaturity. The committee requested that the company provide
+updated overall survival data and commit to a managed access arrangement with mandatory registry
+data collection through the National Cancer Registration and Analysis Service (NCRAS) to address
+the real-world evidence gap. Conditional recommendation was considered subject to a commercial
+access agreement and a data collection agreement to resolve the survival uncertainty over the
+following 24 months.
+
+5. Recommended Further Evidence
+The committee recommended that the company collect mature overall survival data, additional
+real-world evidence via a UK-based registry, and updated quality-of-life data with reduced
+missingness, to be reviewed at the next scheduled evidence update.

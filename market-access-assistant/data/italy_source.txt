@@ -1,0 +1,50 @@
+AIFA Pricing and Reimbursement Pathway Note (Synthetic Example)
+Product: Renalpix (fictional treatment for chronic kidney disease progression)
+Indication: Slowing progression of chronic kidney disease (CKD stage 3-4) in adults with type 2
+diabetes
+Body: Agenzia Italiana del Farmaco (AIFA), Comitato Prezzi e Rimborso (CPR)
+
+1. Background
+Renalpix is an oral therapy intended to slow the progression of chronic kidney disease in adults
+with type 2 diabetes. The manufacturer submitted a dossier requesting inclusion in the reimbursed
+formulary (classe A) with a proposed price based on cost-effectiveness modelling against standard
+of care.
+
+2. Managed Entry Agreement
+AIFA's Comitato Prezzi e Rimborso proposed a managed entry agreement (MEA) combining a financial
+component and an outcome-based component:
+- Financial component: a confidential discount off the list price, with a cost-sharing arrangement
+  for the first three months of treatment in newly initiated patients.
+- Outcome-based component: a payment-by-results scheme in which the manufacturer provides a
+  rebate for patients who progress to end-stage renal disease or require dialysis within 24 months
+  of starting treatment, based on registry-confirmed outcomes.
+- Patients must be registered in the AIFA monitoring registry (Registro di Monitoraggio AIFA) so
+  that treatment response and progression events can be tracked to support both components of the
+  agreement.
+
+3. Budget Impact Uncertainty
+The committee noted that the budget impact estimate submitted by the manufacturer was uncertain
+for the following reasons:
+- The eligible patient population estimate relied on epidemiological assumptions extrapolated from
+  international literature rather than Italian regional registry data, creating uncertainty about
+  the true size of the treated population.
+- Assumptions about the uptake rate among eligible patients in the first two years varied widely
+  across the scenarios presented by the manufacturer, with no clear justification for the base
+  case assumption chosen.
+- The offset in dialysis-related costs assumed in the economic model depended on the same
+  immature long-term outcome data being collected through the monitoring registry, creating
+  circularity between the clinical uncertainty and the budget impact estimate.
+- Regional variation in current standard-of-care costs across Italian regions was not fully
+  reflected in the national budget impact model, which the committee considered a further source
+  of uncertainty.
+
+4. Registry and Real-World Evidence
+AIFA required participation in the Registro di Monitoraggio AIFA as a condition of reimbursement,
+with mandatory reporting of renal function decline, progression to dialysis, and adverse events.
+This real-world data collection is intended to inform both the outcome-based rebate calculations
+and a scheduled re-assessment of the budget impact model after 24 months of registry data.
+
+5. Conclusion
+The Comitato Prezzi e Rimborso approved conditional reimbursement under the combined managed entry
+agreement described above, contingent on registry enrolment and a formal re-assessment once
+sufficient real-world outcome and budget data have been collected.

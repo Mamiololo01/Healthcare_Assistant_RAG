@@ -1,0 +1,46 @@
+HAS Reimbursement Summary - Connected Medical Device (Synthetic Example)
+Product: CardioLink Connect (fictional connected cardiac monitoring device)
+Indication: Remote monitoring of adults with chronic heart failure (NYHA class II-III)
+Body: Haute Autorite de Sante (HAS), Commission Nationale d'Evaluation des Dispositifs Medicaux
+et des Technologies de Sante (CNEDiMTS)
+
+1. Background
+CardioLink Connect is a wearable patch device that continuously monitors heart rate, activity, and
+thoracic fluid levels, transmitting data to a clinician dashboard for remote monitoring of chronic
+heart failure patients. The manufacturer applied for inclusion on the list of reimbursable products
+and services (Liste des Produits et Prestations Remboursables, LPPR).
+
+2. Clinical and Organisational Evidence
+The submission included a prospective cohort study of 180 patients showing a reduction in
+unplanned heart-failure-related hospital admissions compared with standard outpatient follow-up.
+CNEDiMTS considered the clinical benefit (Service Attendu) to be established, but noted several
+areas of uncertainty that affect the terms of reimbursement.
+
+3. Reasons Reimbursement May Be Conditional
+- The cohort study was single-arm and non-randomised, so the magnitude of benefit compared with
+  usual remote monitoring pathways already in use in some regions remains uncertain.
+- Long-term durability of the reduction in hospital admissions beyond the 12-month study period
+  has not been demonstrated, so continued reimbursement may be linked to further data collection.
+- The economic evaluation relied on assumptions about avoided hospitalisation costs that CNEDiMTS
+  considered only partially validated for the French healthcare setting.
+- CNEDiMTS proposed that reimbursement be granted on a conditional basis, tied to real-world data
+  collection through a national registry, with a formal re-assessment after two years.
+
+4. Data Privacy Concerns
+- The device continuously transmits physiological data to a cloud platform operated by a
+  third-party vendor, raising questions about data residency and compliance with French and EU
+  data protection requirements (RGPD/GDPR).
+- CNEDiMTS asked for clarification on how patient consent is obtained for secondary use of
+  monitoring data for product improvement purposes, and whether patients can opt out of such use
+  while continuing to use the device for clinical monitoring.
+- The dossier did not fully specify data retention periods or the process for deleting patient
+  data after a patient stops using the device, which CNEDiMTS flagged as needing clarification
+  before full reimbursement terms are finalised.
+- Questions were also raised about which entity is the data controller under GDPR when data flows
+  between the device manufacturer, the cloud host, and the treating hospital.
+
+5. Recommended Additional Evidence
+CNEDiMTS recommended a randomised or comparative study against existing remote monitoring
+pathways, longer-term follow-up data on hospitalisation outcomes, and a clearer data governance
+framework addressing consent, retention, and controller responsibilities under GDPR, to support a
+non-conditional reimbursement decision at the next review.

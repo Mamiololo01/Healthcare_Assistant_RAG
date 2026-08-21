@@ -1,0 +1,45 @@
+AMNOG Nutzenbewertung - Zusammenfassung (Synthetisches Beispiel)
+Produkt: DigiTherap-CBT (fiktive digitale Gesundheitsanwendung, DiGA)
+Indikation: Begleitende Behandlung leichter bis mittelschwerer depressiver Episoden bei Erwachsenen
+Verfahren: Fruehe Nutzenbewertung nach Paragraph 35a SGB V (AMNOG-Verfahren)
+
+1. Hintergrund
+DigiTherap-CBT ist eine App-basierte kognitive Verhaltenstherapie (CBT), die als digitale
+Gesundheitsanwendung (DiGA) zur Unterstuetzung dgermany_amnog_digital_therapeutic_note_deer ambulanten Behandlung leichter bis mittelschwerer
+Depressionen eingesetzt wird. Der Hersteller legte eine randomisierte kontrollierte Studie mit 260
+Teilnehmenden vor, in der DigiTherap-CBT mit einer Warteliste-Kontrollgruppe verglichen wurde.
+
+2. Bewertung des Zusatznutzens
+Der Gemeinsame Bundesausschuss (G-BA) stellte fest, dass der gewaehlte Komparator - eine
+Wartelistenkontrolle ohne aktive Behandlung - nicht der zweckmaessigen Vergleichstherapie entspricht,
+da in der Versorgungsrealitaet Patienten typischerweise eine Standardbehandlung wie ambulante
+Psychotherapie oder Antidepressiva erhalten. Der Ausschuss aeusserte erhebliche Bedenken, dass der
+Vergleich gegen eine unbehandelte Kontrollgruppe den tatsaechlichen Zusatznutzen gegenueber der
+etablierten Versorgung ueberschaetzen koennte.
+
+3. Bedenken zum Komparator
+- Der Vergleich erfolgte gegen eine Wartelistenkontrolle, nicht gegen die zweckmaessige
+  Vergleichstherapie (ambulante Psychotherapie oder pharmakologische Standardbehandlung).
+- Es fehlen Daten zum Vergleich mit einer aktiven Behandlungsalternative, wodurch die
+  Grössenordnung des tatsaechlichen Zusatznutzens unklar bleibt.
+- Die Studiendauer von 12 Wochen wurde als zu kurz bewertet, um Aussagen zur Nachhaltigkeit des
+  Behandlungseffekts (Dauerhaftigkeit des Nutzens) zu treffen.
+- Patientenberichtete Endpunkte wurden nicht verblindet erhoben, was das Risiko einer Verzerrung
+  durch Erwartungseffekte erhoeht.
+
+4. Empfohlene zusaetzliche Evidenz
+Um das Dossier zu staerken, empfahl der G-BA:
+- Eine vergleichende Studie gegen die zweckmaessige Vergleichstherapie (aktive Behandlung statt
+  Warteliste).
+- Laengere Nachbeobachtungszeitraeume (mindestens 6-12 Monate) zur Beurteilung der Dauerhaftigkeit
+  des Behandlungseffekts.
+- Real-World-Daten aus einem Register zur Nutzung der DiGA in der Regelversorgung, einschliesslich
+  Adhaerenzraten ausserhalb kontrollierter Studienbedingungen.
+- Verblindete oder zumindest teilverblindete Erhebung patientenberichteter Endpunkte, soweit
+  methodisch moeglich.
+
+5. Fazit
+Der Zusatznutzen von DigiTherap-CBT gegenueber der zweckmaessigen Vergleichstherapie konnte auf
+Basis der vorgelegten Studie nicht als belegt angesehen werden. Der G-BA verwies auf die Erprobung
+mit Datenerhebung nach Paragraph 137e SGB V als moeglichen Weg, um in einer strukturierten Erprobung
+weitere Evidenz zu generieren, bevor eine abschliessende Nutzenbewertung erfolgen kann.

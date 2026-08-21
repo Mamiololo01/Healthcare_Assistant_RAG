@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Market Access Evidence Assistant</title>
+<style>
+  :root {
+    --ink: #1c2430;
+    --ink-soft: #5b6572;
+    --line: #dde1e6;
+    --bg: #f6f7f9;
+    --panel: #ffffff;
+    --accent: #2a5c8a;
+    --accent-soft: #e7eef5;
+    --ok: #1f7a4d;
+    --ok-bg: #e6f4ec;
+    --warn: #8a5a1f;
+    --warn-bg: #f6ecdc;
+    --low: #9c2b2b;
+    --low-bg: #f7e6e6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  header {
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--line);
+    background: var(--panel);
+  }
+  header h1 { font-size: 18px; margin: 0 0 2px; font-weight: 600; }
+  header p { margin: 0; color: var(--ink-soft); font-size: 13px; }
+  header a { color: var(--accent); text-decoration: none; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 24px auto;
+    padding: 0 20px;
+    align-items: start;
+  }
+  @media (max-width: 780px) {
+    .layout { grid-template-columns: 1fr; }
+  }
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .panel h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    margin: 0 0 12px;
+  }
+
+  #doc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  #doc-list li {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  #doc-list .title { font-weight: 600; }
+  #doc-list .meta { color: var(--ink-soft); font-size: 12px; margin-top: 2px; }
+
+  .upload-form { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 14px; }
+  .upload-form label { display: block; font-size: 12px; color: var(--ink-soft); margin: 8px 0 4px; }
+  .upload-form input[type="text"],
+  .upload-form textarea,
+  .upload-form input[type="file"] {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    font-size: 13px;
+    font-family: inherit;
+  }
+  .upload-form textarea { min-height: 70px; resize: vertical; }
+
+  button {
+    cursor: pointer;
+    border: none;
+    background: var(--accent);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  button:disabled { opacity: 0.55; cursor: default; }
+  button.secondary { background: var(--accent-soft); color: var(--accent); }
+
+  #ask-box textarea {
+    width: 100%;
+    min-height: 64px;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+  }
+
+  .suggestions { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+  .suggestions button {
+    margin: 0;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  #answer-area { margin-top: 20px; }
+  .answer-card { border: 1px solid var(--line); border-radius: 8px; padding: 16px; background: var(--panel); }
+  .answer-text { font-size: 15px; line-height: 1.55; margin: 0 0 12px; }
+
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+  .badge.high { color: var(--ok); background: var(--ok-bg); }
+  .badge.medium { color: var(--warn); background: var(--warn-bg); }
+  .badge.low { color: var(--low); background: var(--low-bg); }
+
+  .limitations {
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid var(--line);
+  }
+
+  .sources { margin-top: 16px; }
+  .sources h3 { font-size: 12px; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 8px; }
+  .source-item {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-soft);
+    padding: 8px 10px;
+    border-radius: 0 6px 6px 0;
+    font-size: 12.5px;
+    margin-bottom: 8px;
+  }
+  .source-item .src-meta { color: var(--accent); font-weight: 600; margin-bottom: 3px; }
+
+  .status { font-size: 13px; color: var(--ink-soft); margin-top: 10px; }
+  .error { color: var(--low); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Market Access Evidence Assistant</h1>
+  <p>Grounded Q&amp;A over healthcare market access notes &middot; not medical, legal, or regulatory advice &middot; <a href="/docs">API docs</a></p>
+</header>
+
+<div class="layout">
+  <aside class="panel">
+    <h2>Documents</h2>
+    <ul id="doc-list"><li class="meta">Loading...</li></ul>
+
+    <div class="upload-form">
+      <h2 style="margin-top:0">Add a document</h2>
+      <label for="doc-title">Title</label>
+      <input type="text" id="doc-title" placeholder="e.g. Spain pricing note" />
+      <label for="doc-country">Country (optional)</label>
+      <input type="text" id="doc-country" placeholder="e.g. Spain" />
+      <label for="doc-text">Paste text</label>
+      <textarea id="doc-text" placeholder="Paste document text here..."></textarea>
+      <button id="submit-text" class="secondary">Add text document</button>
+
+      <label for="doc-file" style="margin-top:14px">Or upload a file (.txt / .pdf)</label>
+      <input type="file" id="doc-file" accept=".txt,.pdf" />
+      <button id="submit-file" class="secondary">Upload file</button>
+      <p id="upload-status" class="status"></p>
+    </div>
+  </aside>
+
+  <main>
+    <div class="panel" id="ask-box">
+      <h2>Ask a question</h2>
+      <textarea id="question" placeholder="e.g. What were the main evidence gaps for the UK oncology medicine?"></textarea>
+      <div class="suggestions" id="suggestions"></div>
+      <button id="ask-btn">Ask</button>
+      <p id="ask-status" class="status"></p>
+    </div>
+
+    <div id="answer-area"></div>
+  </main>
+</div>
+
+<script>
+const SUGGESTED_QUESTIONS = [
+  "What were the main evidence gaps for the UK oncology medicine?",
+  "Why was the overall survival evidence uncertain in the UK document?",
+  "What concerns were raised about the German digital therapeutic comparator?",
+  "What data privacy concerns were noted for the French connected device?",
+  "What kind of managed entry agreement was proposed in the Italy note?",
+  "Why was the Italian budget impact estimate uncertain?",
+  "Which documents mention real-world evidence or registry collection?",
+];
+
+async function loadDocuments() {
+  const list = document.getElementById("doc-list");
+  try {
+    const res = await fetch("/documents");
+    const data = await res.json();
+    if (!data.documents.length) {
+      list.innerHTML = '<li class="meta">No documents yet.</li>';
+      return;
+    }
+    list.innerHTML = data.documents.map(d => `
+      <li>
+        <div class="title">${escapeHtml(d.title)}</div>
+        <div class="meta">${d.country ? escapeHtml(d.country) + " &middot; " : ""}${d.char_count.toLocaleString()} chars &middot; ${d.source_type}</div>
+      </li>
+    `).join("");
+  } catch (e) {
+    list.innerHTML = '<li class="meta error">Could not load documents.</li>';
+  }
+}
+
+function renderSuggestions() {
+  const box = document.getElementById("suggestions");
+  box.innerHTML = SUGGESTED_QUESTIONS.map(q => `<button type="button" class="sugg">${escapeHtml(q)}</button>`).join("");
+  box.querySelectorAll(".sugg").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.getElementById("question").value = btn.textContent;
+    });
+  });
+}
+
+function escapeHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+async function askQuestion() {
+  const question = document.getElementById("question").value.trim();
+  const statusEl = document.getElementById("ask-status");
+  const answerArea = document.getElementById("answer-area");
+  const askBtn = document.getElementById("ask-btn");
+
+  if (!question) {
+    statusEl.textContent = "Enter a question first.";
+    statusEl.className = "status error";
+    return;
+  }
+
+  statusEl.textContent = "Thinking...";
+  statusEl.className = "status";
+  askBtn.disabled = true;
+
+  try {
+    const res = await fetch("/ask", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question }),
+    });
+    const data = await res.json();
+
+    if (!res.ok) {
+      statusEl.textContent = data.message || "Something went wrong.";
+      statusEl.className = "status error";
+      askBtn.disabled = false;
+      return;
+    }
+
+    statusEl.textContent = "";
+    renderAnswer(data);
+  } catch (e) {
+    statusEl.textContent = "Could not reach the API.";
+    statusEl.className = "status error";
+  }
+  askBtn.disabled = false;
+}
+
+function renderAnswer(data) {
+  const area = document.getElementById("answer-area");
+  const sourcesHtml = (data.sources || []).map(s => `
+    <div class="source-item">
+      <div class="src-meta">${escapeHtml(s.document_id)} &middot; relevance ${s.relevance_score}</div>
+      <div>${escapeHtml(s.snippet)}</div>
+    </div>
+  `).join("") || '<p class="status">No matching source snippets were found.</p>';
+
+  area.innerHTML = `
+    <div class="answer-card">
+      <span class="badge ${data.confidence}">${data.confidence} confidence</span>
+      <p class="answer-text" style="margin-top:12px">${escapeHtml(data.answer)}</p>
+      <div class="sources">
+        <h3>Source snippets</h3>
+        ${sourcesHtml}
+      </div>
+      <div class="limitations">${escapeHtml(data.limitations)}</div>
+    </div>
+  `;
+}
+
+async function submitTextDocument() {
+  const title = document.getElementById("doc-title").value.trim();
+  const country = document.getElementById("doc-country").value.trim();
+  const text = document.getElementById("doc-text").value.trim();
+  const statusEl = document.getElementById("upload-status");
+
+  if (!title || !text) {
+    statusEl.textContent = "Title and text are both required.";
+    statusEl.className = "status error";
+    return;
+  }
+
+  statusEl.textContent = "Adding...";
+  statusEl.className = "status";
+
+  try {
+    const res = await fetch("/documents", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title, text, country: country || undefined }),
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      statusEl.textContent = data.message || "Could not add document.";
+      statusEl.className = "status error";
+      return;
+    }
+    statusEl.textContent = `Added "${data.title}".`;
+    statusEl.className = "status";
+    document.getElementById("doc-title").value = "";
+    document.getElementById("doc-country").value = "";
+    document.getElementById("doc-text").value = "";
+    loadDocuments();
+  } catch (e) {
+    statusEl.textContent = "Could not reach the API.";
+    statusEl.className = "status error";
+  }
+}
+
+async function submitFileDocument() {
+  const fileInput = document.getElementById("doc-file");
+  const statusEl = document.getElementById("upload-status");
+  const file = fileInput.files[0];
+
+  if (!file) {
+    statusEl.textContent = "Choose a .txt or .pdf file first.";
+    statusEl.className = "status error";
+    return;
+  }
+
+  statusEl.textContent = "Uploading...";
+  statusEl.className = "status";
+
+  const formData = new FormData();
+  formData.append("file", file);
+
+  try {
+    const res = await fetch("/documents", { method: "POST", body: formData });
+    const data = await res.json();
+    if (!res.ok) {
+      statusEl.textContent = data.message || "Could not upload file.";
+      statusEl.className = "status error";
+      return;
+    }
+    statusEl.textContent = `Uploaded "${data.title}".`;
+    statusEl.className = "status";
+    fileInput.value = "";
+    loadDocuments();
+  } catch (e) {
+    statusEl.textContent = "Could not reach the API.";
+    statusEl.className = "status error";
+  }
+}
+
+document.getElementById("ask-btn").addEventListener("click", askQuestion);
+document.getElementById("submit-text").addEventListener("click", submitTextDocument);
+document.getElementById("submit-file").addEventListener("click", submitFileDocument);
+
+renderSuggestions();
+loadDocuments();
+</script>
+
+</body>
+</html>

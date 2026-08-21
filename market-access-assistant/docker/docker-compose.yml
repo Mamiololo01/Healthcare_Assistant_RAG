@@ -1,0 +1,11 @@
+services:
+  evidence-assistant:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - LLM_PROVIDER=mock
+      # - LLM_PROVIDER=openai
+      # - OPENAI_API_KEY=sk-...
+      # - API_KEY=some-shared-secret   # uncomment to require X-API-Key on write endpoints
+    restart: unless-stopped
